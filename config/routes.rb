@@ -51,7 +51,12 @@ RorPaste::Application.routes.draw do
 
   get 'help/markdown'     => 'help#markdown'
 
-  resources :pastes
+  resources :pastes do
+    collection do
+      get 'expired',     :to => "pastes#expired"
+    end
+  end
+
   root :to => 'pastes#new'
 
   # See how all your routes lay out with "rake routes"

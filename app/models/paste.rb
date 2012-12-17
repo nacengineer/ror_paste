@@ -4,4 +4,9 @@ class Paste < ActiveRecord::Base
   def self.expires_after(date)
     where('expire >= ?', date)
   end
+
+  def self.expired
+    where('expire <= ?', Time.now)
+  end
+
 end
