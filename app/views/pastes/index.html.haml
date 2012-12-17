@@ -32,3 +32,4 @@
 
 = content_for :nav_bar_sub do
   %li= link_to 'Create a New Paste', new_paste_path, :class => 'btn btn-success btn-large'
+  %li= link_to 'Show Expired Pastes', pastes_path(:all => true), :class => 'btn btn-success btn-large'

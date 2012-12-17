@@ -1,9 +1,13 @@
 class PastesController < ApplicationController
 
   def index
-    @pastes = Paste.expires_after(Time.now).paginate(:per_page => 10, :page => params[:page]).
+    if params[:all] = true
+      @pastes = Paste.paginate(:per_page => 10, :page => params[:page]).
       order('created_at DESC')
-
+    else
+      @pastes = Paste.expires_after(Time.now).paginate(:per_page => 10, :page => params[:page]).
+      order('created_at DESC')
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pastes }
