@@ -1,0 +1,34 @@
+= content_for :header_title do
+  - if @pastes.blank?
+    %p There are currently no pastes
+  - else
+    = page_title( "Pastes in the system" )
+
+- if @pastes.present?
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th.links &nbsp;
+        %th       Title or Trancated Sample of Paste
+        %th       Created
+
+    - if will_paginate(@pastes)
+      %tfoot
+        %tr
+          %td{:colspan => 3}
+            = will_paginate @paste
+
+    %tbody
+      - @pastes.each do |paste|
+        %tr
+          %td
+            %ul.nav.nav-list
+              %li= link_to "<i class='icon-camera-retro'></i> Show".html_safe, paste, :alt => 'show', :name => 'show'
+              %li= link_to "<i class='icon-pencil'></i> Edit".html_safe, edit_paste_path(paste), :alt => 'edit', :name => 'edit'
+              %li= link_to "<i class='icon-trash'></i> Delete".html_safe, paste, confirm: 'Are you sure?', method: :delete, :alt => 'delete', :name => 'delete'
+          %td= paste.title.empty? ? truncate( markdown(paste.paste), :length => 100).html_safe : paste.title
+          %td= ccap_timestamp( paste.created_at )
+
+
+= content_for :nav_bar_sub do
+  %li= link_to 'Create a New Paste', new_paste_path, :class => 'btn btn-success btn-large'

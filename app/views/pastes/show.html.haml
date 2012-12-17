@@ -1,0 +1,23 @@
+= content_for :extra_css do
+  = css_from_string Pygments.css('.highlight')
+
+= content_for :sidebar_content do
+  %table.table.table-condensed
+    %tr
+      %td Created:
+      %td= @paste.created_at.to_formatted_s(:long_ordinal) if @paste.created_at.present?
+    %tr
+      %td Expires:
+      %td= @paste.expire.to_formatted_s(:long_ordinal) if @paste.expire.present?
+
+= content_for :h3_content do
+  %div.lead= @paste.title.titleize
+
+= preserve do
+  = markdown( @paste.paste )
+
+= content_for :nav_bar_sub do
+  %div.nav.nav-pills
+    %li= link_to 'All',  pastes_path, :class => 'btn btn-primary'
+    %li= link_to 'New',  new_paste_path, :class => 'btn btn-primary'
+    %li= link_to 'Edit', edit_paste_path(@paste), :class => 'btn btn-primary'

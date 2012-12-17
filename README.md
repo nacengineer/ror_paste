@@ -1,0 +1,15 @@
+# RoR Paste #
+## A simple paste app for Rails ##
+
+A lot of the beginning code in this  app was lifted from code published on the web and from the awesome project gitlab. :)
+
+You should rename the following to .rb and modify to suit your deploy.
+
+```
+config/deploy/production.template --> config/deploy/production.rb
+config/deploy.template            --> config/deploy.rb
+```
+
+Good luck!
+
+P.S. If you fork and modify please give the changes back for all to benefit!

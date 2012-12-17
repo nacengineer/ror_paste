@@ -1,0 +1,65 @@
+= content_for :nav_bar_sub do
+  %li= link_to 'Back', :back, :class => 'btn btn-primary'
+
+%h3.page_title GitLab Flavored Markdown
+%hr
+
+.row
+  .span8
+    %p
+      We use Pygments and also "GitLab Flavored Markdown" (GFM). GFM extends regular Markdown with extra features.
+
+    %p Currently GFM is available in:
+    %ul
+      %li paste content
+
+  .span4
+    .alert.alert-info
+      %p
+        If you're not already familiar with Markdown, you should spend 15 minutes and go over the excellent
+        %strong= link_to "Markdown Syntax Guide", "http://daringfireball.net/projects/markdown/syntax"
+        at Daring Fireball.
+
+.row
+  .span8
+    %h3 Differences from traditional Markdown
+
+    %h4 Newlines
+
+    %p
+      The biggest difference that GFM introduces is in the handling of linebreaks.
+      With traditional Markdown you can hard wrap paragraphs of text and they will be combined into a single paragraph. We find this to be the cause of a huge number of unintentional formatting errors.
+      GFM treats newlines in paragraph-like content as real line breaks, which is probably what you intended.
+
+
+    %p The next paragraph contains two phrases separated by a single newline character:
+    %pre= "Roses are red\nViolets are blue"
+    %p becomes
+    = markdown "Roses are red\nViolets are blue"
+
+    %h4 Multiple underscores in words
+
+    %p
+      It is not reasonable to italicize just <em>part</em> of a word, especially when you're dealing with code and names often appear with multiple underscores.
+      Therefore, GFM ignores multiple underscores in words.
+
+    %pre= "perform_complicated_task\ndo_this_and_do_that_and_another_thing"
+    %p becomes
+    = markdown "perform_complicated_task\ndo_this_and_do_that_and_another_thing"
+
+    %h4 URL autolinking
+
+    %p
+      GFM will autolink standard URLs you copy and paste into your text.
+      So if you want to link to a URL (instead of a textual link), you can simply put the URL in verbatim and it will be turned into a link to that URL.
+
+    %h4 Fenced code blocks
+
+    %p
+      Markdown converts text with four spaces at the front of each line to code blocks.
+      GFM supports that, but we also support fenced blocks.
+      Just wrap your code blocks in <code>```</code> and you won't need to indent manually to trigger a code block.
+
+    %pre= %Q{```ruby\nrequire 'redcarpet'\nmarkdown = Redcarpet.new("Hello World!")\nputs markdown.to_html\n```}
+    %p becomes
+    = markdown %Q{```ruby\nrequire 'redcarpet'\nmarkdown = Redcarpet.new("Hello World!")\nputs markdown.to_html\n```}

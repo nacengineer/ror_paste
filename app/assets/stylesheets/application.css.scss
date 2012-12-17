@@ -1,0 +1,19 @@
+/*
+ *= require_self
+ *= require jquery-ui/redmond
+*/
+
+$main-brown-color:   #CCBF99;
+$nav-bar-background: #4D597F;
+
+@import 'bootstrap';
+@import 'bootstrap-responsive';
+@import 'font-awesome';
+
+body {
+  margin-top: 10px;
+
+  table {
+    .links { width: 100px; }
+  }
+}

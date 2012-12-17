@@ -1,0 +1,62 @@
+server "your.server.com", :app, :web, :db, :primary => true
+set    :deploy_to,              File.join("/","var","rails","unicorn",application)
+
+namespace :deploy do
+
+  # # http://stackoverflow.com/questions/9016002/speed-up-assetsprecompile-with-rails-3-1-3-2-capistrano-deployment
+  namespace :assets do
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      from = source.next_revision(current_revision) rescue nil
+
+      if from.nil? || capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
+        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+      else
+        logger.info "Skipping asset pre-compilation because there were no asset changes"
+      end
+    end
+  end
+
+  namespace :db do
+
+    desc 'Symlink Shared Database'
+    task :symlink_shared_database, :roles => :app, :except => {:no_symlink => true} do
+      invoke_command <<-CMD, :via => run_method
+        cd #{release_path};
+        ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml;
+        ln -nfs #{shared_path}/db/production.sqlite3 #{release_path}/db/production.sqlite3;
+      CMD
+      # TODO symlink pids to working directory
+      # TODO symlink logs to central log directory
+    end
+
+    desc 'Symlinking shared path files into release'
+    task :symlink_shared_logs, :roles => :app, :except => {:no_symlink => true} do
+      invoke_command <<-CMD, :via => run_method
+        cd #{release_path};
+        ln -nfs #{shared_path}/log #{release_path}/log;
+      CMD
+      # TODO symlink pids to working directory
+      # TODO symlink logs to central log directory
+    end
+
+    desc 'Symlinking shared path files into release'
+    task :symlink_shared_pids, :roles => :app, :except => {:no_symlink => true} do
+      invoke_command <<-CMD, :via => run_method
+        cd #{release_path};
+        ln -nfs #{shared_path}/pids #{release_path}/tmp/pids;
+      CMD
+      # TODO symlink pids to working directory
+      # TODO symlink logs to central log directory
+    end
+
+    desc 'Handle the linking of files not checked into source control'
+    task :do_symlinks, :roles => :app, :except => {:no_symlink => true} do
+      symlink_shared_database
+      symlink_shared_logs
+      symlink_shared_pids
+    end
+
+  end
+end
+
+after "deploy:finalize_update", "deploy:db:do_symlinks"

@@ -1,0 +1,46 @@
+require 'rvm/capistrano'
+require 'bundler/capistrano'
+require 'capistrano/ext/multistage'
+require 'capistrano_colors'
+
+capistrano_color_matchers = [
+  { :match => /command finished/,       :color => :hide,      :prio => 10 },
+  { :match => /executing command/,      :color => :blue,      :prio => 10, :attribute => :underscore },
+  { :match => /^transaction: commit$/,  :color => :magenta,   :prio => 10, :attribute => :blink },
+  { :match => /git/,                    :color => :white,     :prio => 20, :attribute => :reverse },
+]
+
+colorize( capistrano_color_matchers )
+
+set :bundle_roles, [:app]
+
+set :rvm_install_type, :stable
+set :rvm_install_ruby, :install
+set :rvm_ruby_string,  "ruby-1.9.3-p194@ror_paste"
+
+set :stages,        ["production"]
+set :default_stage, "production"
+set :application,   "ror_paste"
+set :repository,    "git@github.com:ror_paste.git"
+set :user,          "your user here"
+set :scm,           :git
+set :use_sudo,      false
+
+role :web, "your.server.com"                   # Your HTTP server, Apache/etc
+role :app, "your.server.com"                   # This may be the same as your `Web` server
+role :db,  "your.server.com", :primary => true # This is where Rails migrations will run
+
+# if you want to clean up old releases on each deploy uncomment this:
+after "deploy:restart", "deploy:cleanup"
+
+# if you're still using the script/reaper helper you will need
+# these http://github.com/rails/irs_process_scripts
+
+# If you are using Passenger mod_rails uncomment this:
+# namespace :deploy do
+#   task :start do ; end
+#   task :stop do ; end
+#   task :restart, :roles => :app, :except => { :no_release => true } do
+#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+#   end
+# end
