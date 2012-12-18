@@ -43,7 +43,8 @@ GEM
       rake
     arel (3.0.2)
     awesome_print (1.1.0)
-    bootstrap-sass (2.0.4.2)
+    bootstrap-sass (2.2.1.1)
+      sass (~> 3.2)
     bootstrap-will_paginate (0.0.9)
       will_paginate
     builder (3.0.3)
@@ -223,7 +224,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   awesome_print
-  bootstrap-sass (~> 2.0.4)
+  bootstrap-sass (~> 2.2.1.1)
   bootstrap-will_paginate
   capistrano
   capistrano-ext
@@ -250,7 +251,7 @@ DEPENDENCIES
   ruby-prof
   rvm
   rvm-capistrano
-  sass-rails (~> 3.2.3)
+  sass-rails (~> 3.2)
   simple_form
   sqlite3
   thin

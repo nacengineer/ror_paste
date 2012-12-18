@@ -10,10 +10,10 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',              '~> 3.2.3'
-  gem 'coffee-rails',            '~> 3.2.1'
-  gem 'bootstrap-sass',          '~> 2.0.4'
+  gem 'sass-rails',              '~> 3.2'
+  gem 'bootstrap-sass',          '~> 2.2.1.1'
   gem "font-awesome-sass-rails", '~> 2.0.0'
+  gem 'coffee-rails',            '~> 3.2.1'
   gem 'jquery-ui-rails'
   gem 'jquery-rails'
   gem 'jquery-ui-themes'
