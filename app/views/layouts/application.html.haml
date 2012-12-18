@@ -21,8 +21,7 @@
           = render "layouts/flash_messages"
           - if content_for?(:header_title)
             %legend= yield :header_title
-          %ul.nav.nav-pills
-            = yield :nav_bar_sub
+          = yield :nav_bar_sub
           - if content_for?(:h3_content)
             = yield :h3_content
           %div

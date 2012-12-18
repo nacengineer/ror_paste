@@ -30,5 +30,5 @@
           %td= ccap_timestamp( paste.created_at )
 
 = content_for :nav_bar_sub do
-  %li= link_to 'create a new paste', new_paste_path, :class => 'btn btn-success btn-large'
-  %li= link_to 'non-expired pastes', pastes_path, :class => 'btn btn-success btn-large'
+  = link_to 'create a new paste', new_paste_path, :class => 'btn btn-success btn-large'
+  = link_to 'non-expired pastes', pastes_path, :class => 'btn btn-success btn-large'
