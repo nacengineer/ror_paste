@@ -51,7 +51,8 @@ RorPaste::Application.routes.draw do
 
   get 'help/markdown' => 'help#markdown'
 
-  resources :pastes, :old_pastes
+  resources :old_pastes, :only => :index
+  resources :pastes
 
   root :to => 'pastes#new'
 
