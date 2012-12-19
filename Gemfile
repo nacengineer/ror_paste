@@ -59,6 +59,7 @@ group :development, :test do
   gem 'debugger'
   gem 'factory_girl_rails'
   gem 'thin'
+  gem 'better_errors'
 end
 
 group :production do
