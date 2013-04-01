@@ -126,4 +126,8 @@ module ApplicationHelper
     "<i class='icon-trash'></i> Delete".html_safe
   end
 
+  def badges(text, num)
+    "<span class='badge'>#{num}</span> #{text}".html_safe
+  end
+
 end

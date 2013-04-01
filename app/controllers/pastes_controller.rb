@@ -1,7 +1,7 @@
 class PastesController < ApplicationController
 
   def index
-    @pastes = Paste.expires_after().paginate(page: params[:page])
+    @pastes = Paste.expires_after(Time.now).paginate(page: params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pastes }
@@ -30,7 +30,6 @@ class PastesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      # format.json { render json: @paste }
     end
   end
 
@@ -44,10 +43,8 @@ class PastesController < ApplicationController
     respond_to do |format|
       if @paste.save
         format.html { redirect_to @paste, notice: 'Paste was successfully created.' }
-        # format.json { render json: @paste, status: :created, location: @paste }
       else
         format.html { render action: "new" }
-        # format.json { render json: @paste.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,10 +55,8 @@ class PastesController < ApplicationController
     respond_to do |format|
       if @paste.update_attributes(params[:paste])
         format.html { redirect_to @paste, notice: 'Paste was successfully updated.' }
-        # format.json { head :ok }
       else
         format.html { render action: "edit" }
-        # format.json { render json: @paste.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -72,7 +67,6 @@ class PastesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to pastes_url }
-      # format.json { head :ok }
     end
   end
 
