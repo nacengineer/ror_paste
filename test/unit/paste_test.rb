@@ -7,22 +7,22 @@ class PasteTest < MiniTest::Spec
       @current_time = Time.now
       @before       = FactoryGirl.create(:paste)
       @at           = FactoryGirl.create(:paste, expire: @current_time)
-      @after        = FactoryGirl.create(:paste, expire: 1.day.ago)
+      @old          = FactoryGirl.create(:old_paste)
     end
 
     it "returns pastes before the date specified" do
       results = Paste.expires_after(@current_time)
-      assert results.include? @before
+      results.include?(@before).must_equal true
     end
 
     it "doesn't return pastes before the date specified" do
       results = Paste.expires_after(@current_time)
-      assert !results.include?(@after)
+      results.include?(@old).must_equal false
     end
 
     it "returns pastes at the date and time specified" do
       results = Paste.expires_after(@current_time)
-      assert results.include? @at
+      results.include?(@at).must_equal true
     end
 
   end
