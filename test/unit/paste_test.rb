@@ -5,9 +5,9 @@ class PasteTest < MiniTest::Spec
 
     before do
       @current_time = Time.now
-      @before = FactoryGirl.create(:paste)
-      @at = FactoryGirl.create(:paste, :expire => @current_time)
-      @after = FactoryGirl.create(:paste, :expire => 1.day.ago)
+      @before       = FactoryGirl.create(:paste)
+      @at           = FactoryGirl.create(:paste, expire: @current_time)
+      @after        = FactoryGirl.create(:paste, expire: 1.day.ago)
     end
 
     it "returns pastes before the date specified" do
