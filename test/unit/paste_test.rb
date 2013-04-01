@@ -26,4 +26,28 @@ class PasteTest < MiniTest::Spec
     end
 
   end
+
+  describe "Paste General" do
+
+    before {@paste = FactoryGirl.build(:paste)}
+
+    it "is valid" do
+      @paste.valid?.must_equal true
+    end
+
+    it "saves" do
+      @paste.save.must_equal true
+    end
+
+    it "destroys" do
+      @paste.destroy.must_equal @paste
+    end
+
+    it "read_title works" do
+      paste = FactoryGirl.create(:paste, title: '')
+      paste.read_title.present?.must_equal true
+      paste.read_title.must_equal paste.paste[0..96] << '...'
+    end
+
+  end
 end
