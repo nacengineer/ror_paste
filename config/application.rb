@@ -61,8 +61,12 @@ module RorPaste
 
     config.generators do |g|
       g.template_engine :haml
+      g.fixture_replacement :factory_girl
+      g.test_framework      :mini_test, spec: true, fixture: false
+      g.integration_tool    :mini_test
       g.stylesheets false
-      g.test_framework  :test_unit, :fixture_replacement => :factory_girl
+      g.javascripts false
+      g.helpers     false
     end
   end
 end

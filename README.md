@@ -13,3 +13,11 @@ config/deploy.template            --> config/deploy.rb
 Good luck!
 
 P.S. If you fork and modify please give the changes back for all to benefit!
+
+### To start a rails server
+
+By default we're using Puma. To start the server
+
+```sh
+bundle exec rails s Puma
+```
