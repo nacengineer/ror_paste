@@ -23,11 +23,14 @@
         %tr
           %td
             %ul.nav.nav-list
-              %li= link_to "<i class='icon-camera-retro'></i> Show".html_safe, paste, :alt => 'show', :name => 'show'
-              %li= link_to "<i class='icon-pencil'></i> Edit".html_safe, edit_paste_path(paste), :alt => 'edit', :name => 'edit'
-              %li= link_to "<i class='icon-trash'></i> Delete".html_safe, paste, confirm: 'Are you sure?', method: :delete, :alt => 'delete', :name => 'delete'
-          %td= paste.title.empty? ? truncate( markdown(paste.paste), :length => 100).html_safe : paste.title
-          %td= ccap_timestamp( paste.created_at )
+              %li
+                = link_to show_text, paste, alt: 'show', name: 'show'
+              %li
+                = link_to edit_text, edit_paste_path(paste), alt: 'edit', name: 'edit'
+              %li
+                = link_to delete_text, paste, confirm: 'Are you sure?', method: :delete, alt: 'delete', name: 'delete'
+          %td= markdown(paste.read_title)
+          %td= ccap_timestamp(paste.created_at)
 
 = content_for :nav_bar_sub do
   = link_to 'create a new paste', new_paste_path, :class => 'btn btn-success btn-large'

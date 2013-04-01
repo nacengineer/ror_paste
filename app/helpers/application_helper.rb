@@ -114,4 +114,16 @@ module ApplicationHelper
     end
   end
 
+  def show_text
+    "<i class='icon-camera-retro'></i> Show".html_safe
+  end
+
+  def edit_text
+    "<i class='icon-pencil'></i> Edit".html_safe
+  end
+
+  def delete_text
+    "<i class='icon-trash'></i> Delete".html_safe
+  end
+
 end
