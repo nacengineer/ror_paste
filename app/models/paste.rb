@@ -3,11 +3,11 @@ class Paste < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
   self.per_page = 10
 
-  def self.expires_after(date)
+  def self.expires_after(date = Time.now - 7.days)
     where('expire >= ?', date).default_order
   end
 
-  def self.expired(date =Time.now - 7.days)
+  def self.expired(date = Time.now - 7.days)
     where('expire <= ?', date).default_order
   end
 
