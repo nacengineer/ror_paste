@@ -1,7 +1,10 @@
 # RoR Paste #
 ## A simple paste app for Rails ##
+### Dependencies ###
 
-A lot of the beginning code in this  app was lifted from code published on the web and from the awesome project gitlab. :)
+- memcached (configure in config/application.rb)
+
+A lot of the beginning code in this app was lifted from code published on the web and from the awesome project gitlab. :)
 
 You should rename the following to .rb and modify to suit your deploy.
 
@@ -21,3 +24,5 @@ By default we're using Puma. To start the server
 ```sh
 bundle exec rails s Puma
 ```
+
+

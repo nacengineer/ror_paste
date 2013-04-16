@@ -60,10 +60,10 @@ module RorPaste
     config.assets.version = '1.0'
 
     config.generators do |g|
-      g.template_engine :haml
-      g.fixture_replacement :factory_girl
-      g.test_framework      :mini_test, spec: true, fixture: false
-      g.integration_tool    :mini_test
+      g.fixture_replacement :factory_girl, dir: ['spec/factories', 'spec/factories/api']
+      g.template_engine     :haml
+      g.test_framework      :rspec, fixture_replacement: :factory_girl
+      g.integration_tool    :rspec
       g.stylesheets false
       g.javascripts false
       g.helpers     false
