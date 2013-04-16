@@ -57,15 +57,20 @@ end
 
 group :development, :test do
   gem 'puma',     platform: :ruby
-  # gem 'thin',     platform: :ruby
   # gem 'trinidad', platform: :jruby
   # gem 'unicorn',  platform: :ruby
+  # gem 'thin',     platform: :ruby
+  gem 'puma',     platform: :ruby
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'awesome_print'
   gem 'rake'
   gem 'pry',       require: false
   gem 'better_errors'
+  gem 'rspec'
+  gem "rspec-rails", "~> 2.0"
+  gem 'capybara'
+  gem 'ruby-prof'
 end
 
 group :production do
@@ -80,14 +85,13 @@ group :test do
   gem 'simplecov', require: false
   gem 'minitest'
   gem 'forgery'
-  gem 'minitest'
-  gem 'minitest-spec-rails'
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-brakeman'
   gem 'guard-coffeescript'
-  gem 'guard-minitest'
+  gem 'guard-rspec'
+  gem 'database_cleaner'
   if RUBY_PLATFORM =~ /darwin/
     gem 'rb-fsevent','~> 0.9.1'
   elsif RUBY_PLATFORM =~ /linux/

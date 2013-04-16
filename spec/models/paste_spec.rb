@@ -1,8 +1,8 @@
-require 'test_helper'
+require 'spec_helper'
 
-class PasteTest < MiniTest::Spec
+describe Paste do
+
   describe ".expires_after" do
-
     before do
       @current_time = Time.now
       @before       = FactoryGirl.create(:paste)
@@ -10,44 +10,45 @@ class PasteTest < MiniTest::Spec
       @old          = FactoryGirl.create(:old_paste)
     end
 
+    after {Paste.delete_all}
+
     it "returns pastes before the date specified" do
       results = Paste.expires_after(@current_time)
-      results.include?(@before).must_equal true
+      results.include?(@before).should eq true
     end
 
     it "doesn't return pastes before the date specified" do
       results = Paste.expires_after(@current_time)
-      results.include?(@old).must_equal false
+      results.include?(@old).should eq false
     end
 
     it "returns pastes at the date and time specified" do
       results = Paste.expires_after(@current_time)
-      results.include?(@at).must_equal true
+      results.include?(@at).should eq true
     end
-
   end
 
   describe "Paste General" do
-
     before {@paste = FactoryGirl.build(:paste)}
+    after {Paste.delete_all}
 
     it "is valid" do
-      @paste.valid?.must_equal true
+      @paste.valid?.should eq true
     end
 
     it "saves" do
-      @paste.save.must_equal true
+      @paste.save.should eq true
     end
 
     it "destroys" do
-      @paste.destroy.must_equal @paste
+      @paste.destroy.should eq @paste
     end
 
     it "read_title works" do
       paste = FactoryGirl.create(:paste, title: '')
-      paste.read_title.present?.must_equal true
-      paste.read_title.must_equal paste.paste[0..96] << '...'
+      paste.read_title.present?.should eq true
+      paste.read_title.should eq(paste.paste[0..96] << '...')
     end
-
   end
+
 end
