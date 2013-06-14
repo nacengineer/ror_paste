@@ -1,2 +1,4 @@
 default:
+  # make this a ActiveSupport helper. i.e. 1.week or 2.days.
+  # Do not use something that adds time direction. i.e. 1.week.ago
   expire_period: 1.week
