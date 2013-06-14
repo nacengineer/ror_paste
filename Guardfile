@@ -10,8 +10,15 @@ notification :tmux,
   :line_separator => ' > ', # since we are single line we need a separator
   :color_location => 'status-left-bg' # to customize which tmux element will change color
 
+brakeman_opts = {
+  :output_file    => 'tmp/donkey.html',
+  :run_on_start   => true,
+  :min_confidence => 3,
+  :chatty         => true
+}
 
 group :frontend do
+
   guard :coffeescript, :output => 'public/javascripts/compiled' do
     watch(%r{^app/coffeescripts/.+\.coffee$})
   end
@@ -32,8 +39,20 @@ group :backend do
 
 end
 
+guard 'spork' do
+  watch('config/application.rb')
+  watch('config/environment.rb')
+  watch(%r{^config/environments/.*\.rb$})
+  watch(%r{^config/initializers/.*\.rb$})
+  watch('Gemfile')
+  watch('Gemfile.lock')
+  watch('spec/spec_helper.rb') { :rspec }
+  watch('test/test_helper.rb') { :test_unit }
+  watch(%r{features/support/}) { :cucumber }
+end
+
 rspec_opts = {
-  cli: "--color --format nested --fail-fast"
+  cli: "--drb --format Fuubar --color --fail-fast"
 }
 
 guard 'rspec', rspec_opts do
@@ -46,13 +65,6 @@ guard 'rspec', rspec_opts do
   watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
 end
-
-# brakeman_opts = {
-#   :output_file    => './tmp/donkey.html',
-#   :run_on_start   => true,
-#   :min_confidence => 3,
-#   :chatty         => false
-# }
 
 # guard 'brakeman', brakeman_opts do
 #   watch(%r{^app/.+\.(erb|haml|rhtml|rb)$})
