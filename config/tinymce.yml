@@ -1,17 +1,22 @@
-theme_advanced_toolbar_location: top
-theme_advanced_toolbar_align: left
-theme_advanced_statusbar_location: bottom
-theme_advanced_buttons3_add:
-  - tablecontrols
-  - fullscreen
-plugins:
-  - table
-  - fullscreen
-mode:
-  - specific_textareas
-theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px"
-font_size_style_values:    "10px,12px,13px,14px,16px,18px,20px"
-mode: "textareas"
-forced_root_block: false
-force_br_newlines: true
-width: "800"
+default:
+  theme_advanced_toolbar_location: top
+  theme_advanced_toolbar_align: left
+  theme_advanced_statusbar_location: bottom
+  theme_advanced_buttons3_add:
+    - tablecontrols
+    - fullscreen
+  plugins:
+    - table
+    - fullscreen
+  mode:
+    - specific_textareas
+  theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px"
+  font_size_style_values:    "10px,12px,13px,14px,16px,18px,20px"
+  mode: "textareas"
+  forced_root_block: false
+  force_br_newlines: true
+  convert_newlines_to_brs: false
+  width: "800"
+  skin: "o2k7"
+  skin_variant: "black"
+  force_hex_style_colors: true
