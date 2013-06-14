@@ -1,15 +1,14 @@
 FactoryGirl.define do
 
   factory :paste do
-    title Forgery::LoremIpsum.words(5)
-    paste Forgery::LoremIpsum.words(100)
+    title  {Forgery::LoremIpsum.words(5)}
+    paste  {Forgery::LoremIpsum.words(100)}
     expire { 1.week.from_now }
-  end
+    trait :old do
+      expire {(eval(RorPaste::SETTINGS[:expire_period].to_s) + 1.day).ago}
+    end
 
-  factory :old_paste, class: Paste do
-    title Forgery::LoremIpsum.words(5)
-    paste Forgery::LoremIpsum.words(100)
-    expire { 2.weeks.ago }
+    factory :old_paste, traits: [:old]
   end
 
 end

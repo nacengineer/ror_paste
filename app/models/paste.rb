@@ -3,11 +3,11 @@ class Paste < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
   self.per_page = 10
 
-  def self.expires_after(date = Time.now - 7.days)
+  def self.expires_after(date = Time.now - expire_period)
     where('expire >= ?', date).default_order
   end
 
-  def self.expired(date = Time.now - 7.days)
+  def self.expired(date = Time.now - expire_period)
     where('expire <= ?', date).default_order
   end
 
@@ -18,6 +18,12 @@ class Paste < ActiveRecord::Base
   def read_title
     title if title.present?
     truncate(paste, length: 100)
+  end
+
+  private
+
+  def expire_period
+    RorPaste::SETTINGS[:expire_period].to_s
   end
 
 end
