@@ -1,5 +1,6 @@
 module ApplicationHelper
-
+  include GitlabMarkdownHelper
+  
   def ccap_date( some_date )
     return '-' if some_date.blank?
     some_date.strftime('%m-%d-%Y')
@@ -64,29 +65,6 @@ module ApplicationHelper
         Pygments.highlight(code, options: {encoding: 'utf-8'})
       end
     end
-  end
-
-
-  def markdown(text)
-    unless @markdown
-      gitlab_renderer = Redcarpet::Render::GitlabHTML.new(self,
-                          # see https://github.com/vmg/redcarpet#darling-i-packed-you-a-couple-renderers-for-lunch-
-                          filter_html: true,
-                          with_toc_data: true,
-                          hard_wrap: true)
-      @markdown = Redcarpet::Markdown.new(gitlab_renderer,
-                      # see https://github.com/vmg/redcarpet#and-its-like-really-simple-to-use
-                      no_intra_emphasis: true,
-                      tables: true,
-                      fenced_code_blocks: true,
-                      autolink: true,
-                      strikethrough: true,
-                      lax_html_blocks: true,
-                      space_after_headers: true,
-                      superscript: true)
-    end
-
-    @markdown.render(text).html_safe
   end
 
   def css_from_string( css )
