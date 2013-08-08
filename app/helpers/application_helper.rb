@@ -26,39 +26,22 @@ module ApplicationHelper
     end
   end
 
-   def explain_errors( model )
+  # ERB ONLY
+  def explain_errors(model)
     if model.present? && model.errors.any?
-      capture_haml do
-        haml_tag :h4 do
-          haml_concat <<-HERE_DOC
-            #{pluralize( model.errors.count, "error")} prohibited this
-            #{ model.class } from being saved:
-          HERE_DOC
-        end
-        haml_tag :ul do
-          model.errors.full_messages.each do |msg|
-            haml_tag :li, msg
-          end
-        end
+      html = ""
+      html << content_tag(:h4) do
+        <<-HERE_DOC
+          #{pluralize( model.errors.count, "error")} prohibited this
+          #{ model.class } from being saved:
+        HERE_DOC
       end
-    end
-  end
-
-  def explain_errors( model )
-    if model.present? && model.errors.any?
-      capture_haml do
-        haml_tag :h4 do
-          haml_concat <<-HERE_DOC.unindent
-            #{pluralize( model.errors.count, "error")} prohibited this
-            #{ model.class } from being saved:
-          HERE_DOC
-        end
-        haml_tag :ul do
-          model.errors.full_messages.each do |msg|
-            haml_tag :li, msg
-          end
-        end
+      html << content_tag(:ul) do
+        model.errors.full_messages.each {|msg|
+          concat(content_tag(:li, msg, class: 'text-error'))
+        }
       end
+      html.html_safe
     end
   end
 
