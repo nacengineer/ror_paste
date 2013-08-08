@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/nacengineer/ror_paste.png)](https://codeclimate.com/github/nacengineer/ror_paste)
+
 # RoR Paste #
 ## A simple paste app for Rails ##
 ### Dependencies ###
