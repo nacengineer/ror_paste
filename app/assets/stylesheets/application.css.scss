@@ -7,8 +7,9 @@ $main-brown-color:   #CCBF99;
 $nav-bar-background: #4D597F;
 
 @import "bootstrap";
-@import "bootstrap-responsive";
 @import "font-awesome";
+@import "honey_badger";
+@import "pygments";
 
 body {
   margin-top: 10px;

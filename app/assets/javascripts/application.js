@@ -7,7 +7,6 @@
 //= require jquery
 //= require jquery.ui.all
 //= require jquery_ujs
-//= require_tree .
 //= require bootstrap
-//= require tinymce-jquery
-//= require calendar
+//= require bootstrap-markdown
+//= require_tree .

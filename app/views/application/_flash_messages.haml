@@ -1,0 +1,4 @@
+- flash.each do |type, message|
+  %div{class: "fade in #{twitterized_type(type)}" }
+    %div{class: 'close', 'data-dismiss' => 'alert'} &times;
+    = message

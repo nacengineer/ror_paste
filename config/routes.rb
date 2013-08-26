@@ -49,7 +49,7 @@ RorPaste::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-  get 'help/markdown' => 'help#markdown'
+  get 'help/markdown', to: 'help#markdown'
 
   resources :old_pastes, :only => :index
   resources :pastes

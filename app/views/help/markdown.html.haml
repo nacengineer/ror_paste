@@ -1,11 +1,11 @@
-= content_for :nav_bar_sub do
+= content_for :sub_navbar do
   %li= link_to 'Back', :back, :class => 'btn btn-primary'
 
 %h3.page_title GitLab Flavored Markdown
 %hr
 
 .row
-  .span8
+  .col-md-8
     %p
       We use Pygments and also "GitLab Flavored Markdown" (GFM). GFM extends regular Markdown with extra features.
 
@@ -13,7 +13,7 @@
     %ul
       %li paste content
 
-  .span4
+  .col-md-4
     .alert.alert-info
       %p
         If you're not already familiar with Markdown, you should spend 15 minutes and go over the excellent
@@ -21,7 +21,7 @@
         at Daring Fireball.
 
 .row
-  .span8
+  .col-md-8
     %h3 Differences from traditional Markdown
 
     %h4 Newlines

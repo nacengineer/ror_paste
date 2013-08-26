@@ -1,6 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '~> 4.0.0'
+
+# add these gems to help with the transition:
+gem 'protected_attributes'
+gem 'rails-observers'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
+gem 'actionpack', '~> 4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,31 +16,37 @@ gem 'sqlite3'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails',     '~> 3.2.4'
-  gem 'bootstrap-sass', '~> 2.3.0.1'
-  gem 'coffee-rails',   '~> 3.2.2'
-  gem 'font-awesome-rails'
-  gem 'jquery-rails'
-  gem 'jquery-ui-rails'
-  gem 'jquery-ui-themes'
-  gem 'compass-rails'
-  gem 'uglifier',       '~>1.0.3'
-  gem 'yui-compressor'
-end
+
+gem 'sass-rails',     '~> 4.0.0'
+gem 'coffee-rails',   '~> 4.0.0'
+gem 'uglifier',       '~> 1.0.3'
+
+gem 'bootstrap-sass', git: 'https://github.com/thomas-mcdonald/bootstrap-sass.git', branch: '3'
+gem 'bootstrap-will_paginate'
+gem 'font-awesome-rails'
+gem "honey_badger", git: 'https://github.com/nacengineer/honey_badger.git', branch: 'rails-4'
+gem "breadcrumbs_on_rails"
+gem 'rails-bootstrap-markdown'
+
+
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-ui-themes'
+gem "compass-rails", "~> 2.0.alpha.0"
+gem 'yui-compressor'
+
 
 gem 'tinymce-rails'
 
 gem 'haml'
 gem 'haml-rails'
-gem 'simple_form'
+gem 'simple_form', '~>3.0.0.rc'
+
+gem 'dalli'
 
 gem 'pygments.rb'
 gem "github-linguist", "~> 2.3.4" , require: 'linguist'
 gem "github-markup",   "~> 0.7.4",  require: 'github/markup'
-
-gem 'will_paginate',   '~> 3.0.0'
-gem 'bootstrap-will_paginate'
 
 gem 'redcarpet'
 gem 'nokogiri'
@@ -95,9 +108,9 @@ group :test do
   gem 'guard-livereload'
   gem 'guard-brakeman'
   gem 'guard-coffeescript'
-  gem 'database_cleaner'
+  gem 'database_cleaner', :git => "https://github.com/tommeier/database_cleaner", branch: "fix-superclass"
   gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
-  gem 'spork'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
   gem 'fuubar'
   # gem 'webmock'
   if RUBY_PLATFORM =~ /darwin/

@@ -2,36 +2,32 @@
   - if @pastes.blank?
     %p There are currently no pastes
   - else
-    = page_title( "Pastes in the system" )
+    = page_title("Pastes in the system")
 
 - if @pastes.present?
   %table.table.table-striped.table-bordered
+    %caption Active Pastes
     %thead
       %tr
         %th.links &nbsp;
         %th       Title or Trancated Sample of Paste
         %th       Created
-
     - if will_paginate(@pastes)
       %tfoot
         %tr
           %td{:colspan => 3}
             = will_paginate @paste
-
     %tbody
       - @pastes.each do |paste|
         %tr
           %td
             %ul.nav.nav-list
-              %li
-                = link_to show_text, paste, alt: 'show', name: 'show'
-              %li
-                = link_to edit_text, edit_paste_path(paste), alt: 'edit', name: 'edit'
-              %li
-                = link_to delete_text, paste, confirm: 'Are you sure?', method: :delete, alt: 'delete', name: 'delete'
+              %li= link_to show_link_no_text, paste, alt: 'show', name: 'show'
+              %li= link_to edit_link_no_text, edit_paste_path(paste), alt: 'edit', name: 'edit'
+              %li= link_to delete_link_no_text, paste, confirm: 'Are you sure?', method: :delete, alt: 'delete', name: 'delete'
           %td= markdown(paste.read_title)
-          %td= ccap_timestamp(paste.created_at)
+          %td= display_timestamp(paste.created_at)
 
-= content_for :nav_bar_sub do
-  = link_to 'new paste', new_paste_path, :class => 'btn btn-success btn-block'
-  = link_to badges("show expired", Paste.expired.length), old_pastes_path, :class => 'btn btn-success btn-block'
+= content_for :sub_navbar do
+  = link_to new_link_text, new_paste_path, :class => 'btn btn-success'
+  = link_to index_link_text("expired"), old_pastes_path, :class => 'btn btn-warning'
