@@ -26,8 +26,9 @@ gem "compass-rails", '~> 1.1.3'
 
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
+gem "bootstrap-datepicker-rails", "~> 1.1.1.11"
 gem 'font-awesome-rails', '~> 4.0.3.1'
-gem "honey_badger", git: 'https://github.com/nacengineer/honey_badger.git', branch: 'rails-4'
+gem "ruby_badger"
 gem "breadcrumbs_on_rails"
 gem 'rails-bootstrap-markdown'
 
