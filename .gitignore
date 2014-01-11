@@ -16,3 +16,4 @@
 *.sw*
 .ruby-version
 .ruby-gemset
+coverage/
