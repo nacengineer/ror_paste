@@ -1,12 +1,8 @@
 module ApplicationHelper
-  include GitlabMarkdownHelper
-  include FeedbackHelper
   include LinkHelper
-
-  def display_date( some_date )
-    return '-' if some_date.blank?
-    some_date.strftime('%m-%d-%Y')
-  end
+  include FeedbackHelper
+  include GitlabMarkdownHelper
+  include DateHelper
 
   def display_timestamp( some_datetime )
     return '-' if some_datetime.blank?
@@ -18,15 +14,8 @@ module ApplicationHelper
     some_time.strftime('%I:%M %p')
   end
 
-  def display_datetime( some_time )
-    return '-' if some_time.blank?
-    some_time.strftime('%m-%d-%Y %I:%M %p')
-  end
-
   def page_title( title )
-    capture_haml do
-      haml_tag :h3, title
-    end
+    content_tag :h3, title
   end
 
   # monkey patch Redcarpet gem

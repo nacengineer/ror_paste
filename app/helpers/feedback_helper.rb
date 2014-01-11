@@ -30,4 +30,18 @@ module FeedbackHelper
     end
   end
 
+  def data_viz_user_class(person = nil, grant = nil)
+    if person && grant && grant.pis.include?(person)
+      'text-success'
+    elsif person && person.is_an?(:researcher)
+      'text-info'
+    elsif person && person.is_an?(:support)
+      'text-warning'
+    elsif person && person.is_an?(:admin)
+      'text-danger'
+    else
+      ''
+    end
+  end
+
 end
