@@ -14,3 +14,5 @@
 /log/*.log
 /tmp
 *.sw*
+.ruby-version
+.ruby-gemset
