@@ -15,7 +15,7 @@
     = auto_discovery_link_tag :rss,  "/opinion-feed.rss"
 
   %body.container
-    = honey_badger unless Rails.env.production?
+    = ruby_badger unless Rails.env.production?
     #page-wrapper.row
       #nav-bar-sub.col-md-3
         = render "flash_messages"
