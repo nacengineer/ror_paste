@@ -1,13 +1,15 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 4.0.0'
+RAILS_VERSION = '~> 4.1.0.beta1'
+
+gem 'rails', RAILS_VERSION
 
 # add these gems to help with the transition:
 gem 'protected_attributes'
 gem 'rails-observers'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
-gem 'actionpack', '~> 4.0.0'
+gem 'actionpack', RAILS_VERSION
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -17,36 +19,34 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 
-gem 'sass-rails',     '~> 4.0.0'
-gem 'coffee-rails',   '~> 4.0.0'
-gem 'uglifier',       '~> 1.0.3'
+gem 'sass-rails',    '~> 4.0.1'
+gem 'coffee-rails',  '~> 4.0.1'
+gem 'uglifier',      '~> 1.3.0'
+gem "compass-rails", '~> 1.1.3'
 
-gem 'bootstrap-sass', git: 'https://github.com/thomas-mcdonald/bootstrap-sass.git', branch: '3'
+gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '~> 4.0.3.1'
 gem "honey_badger", git: 'https://github.com/nacengineer/honey_badger.git', branch: 'rails-4'
 gem "breadcrumbs_on_rails"
 gem 'rails-bootstrap-markdown'
 
-
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-ui-themes'
-gem "compass-rails", "~> 2.0.alpha.0"
 gem 'yui-compressor'
 
-
-gem 'tinymce-rails'
+gem 'turbolinks'
 
 gem 'haml'
 gem 'haml-rails'
-gem 'simple_form', '~>3.0.0.rc'
+gem 'simple_form', '~> 3.0.1'
 
 gem 'dalli'
 
 gem 'pygments.rb'
-gem "github-linguist", "~> 2.3.4" , require: 'linguist'
-gem "github-markup",   "~> 0.7.4",  require: 'github/markup'
+gem "github-linguist", "~> 2.10.9" , require: 'linguist'
+gem "github-markup",   "~> 1.0.0",   require: 'github/markup'
 
 gem 'redcarpet'
 gem 'nokogiri'
@@ -57,8 +57,6 @@ gem 'rack-mini-profiler'
 
 group :development do
   gem 'annotate'
-  gem 'awesome_print'
-  gem 'rails3-generators'
   gem 'oink'
   gem 'hirb'
   # uncomment if you don't have js engine (node.js) on your system
@@ -71,7 +69,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
   # gem 'trinidad', platform: :jruby
   # gem 'unicorn',  platform: :ruby
   # gem 'thin',     platform: :ruby

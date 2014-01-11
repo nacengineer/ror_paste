@@ -51,11 +51,7 @@ guard 'spork' do
   watch(%r{features/support/}) { :cucumber }
 end
 
-rspec_opts = {
-  cli: "--drb --format Fuubar --color --fail-fast"
-}
-
-guard 'rspec', rspec_opts do
+guard 'rspec' do
   watch('spec/spec_helper.rb')                        { "spec" }
   watch('config/routes.rb')                           { "spec/routing" }
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
