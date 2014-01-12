@@ -5,11 +5,16 @@
 ### Dependencies ###
 - nodejs
 - ruby 2.0 but should work with 1.9 syntax
-- rails 4.1.0.beta1
-- bootstrap 3
-- memcached (configure in config/application.rb)
 
-A lot of the beginning code in this app was lifted from code published on the web and from the awesome project gitlab. :)
+### Utilizes
+- Twitter Bootstrap 3
+- Font Awesome
+- Rails 4.1.0.beta1
+- sqlite3
+- Simple Form
+
+Authors Note:
+In the spirit of OpenSource, some of the code in this app was "borrowed" from code published on the web and from the awesome project gitlab. The Gitlab stuff is for GFM Markdown. Other stuff I learned along the way.
 
 You should rename the following to .rb and modify to suit your deploy.
 
