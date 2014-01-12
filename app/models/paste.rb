@@ -42,13 +42,13 @@ class Paste < ActiveRecord::Base
   end
 
   def time_format(time)
-    time.present? ? time.localtime.strftime("%m/%d/%Y %I:%M %p") : time
+    time.present? ? time.localtime.strftime("%d/%m/%Y %R") : time
   end
 
   def parse_us_time(time)
     return time if time.blank?
     time_with_zone = "#{time} #{DateTime.now.strftime("%z")}"
-    DateTime.strptime(time_with_zone,"%m/%d/%Y %I:%M %p %z").to_time
+    DateTime.strptime(time_with_zone,"%d/%m/%Y %R %z").to_time
   end
 
 

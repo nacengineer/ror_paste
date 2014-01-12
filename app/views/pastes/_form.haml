@@ -2,7 +2,7 @@
   html: {role: 'form'}  do |f|
   = explain_errors @paste
   .form-group
-    = f.input :expire, as: :string, default: Paste.expire_period, input_html: {class: 'datepicker'}
+    = f.input :js_expire, as: :date_time_picker, default: Paste.expire_period
     = f.input :title
     = f.input :paste, label: "Summary *", input_html: {data: {provide: "markdown"}}
   .form-group

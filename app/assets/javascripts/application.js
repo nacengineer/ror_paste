@@ -8,6 +8,8 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrap-datepicker
+//= require moment
+//= require bootstrap-datetimepicker
 //= require bootstrap-markdown
 //= require_tree .
+

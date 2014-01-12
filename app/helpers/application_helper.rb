@@ -4,6 +4,10 @@ module ApplicationHelper
   include GitlabMarkdownHelper
   include DateHelper
 
+  def site_title
+    "You Paste, We Display it!"
+  end
+
   def display_timestamp( some_datetime )
     return '-' if some_datetime.blank?
     some_datetime.strftime('%m-%d-%Y %I:%M %p')

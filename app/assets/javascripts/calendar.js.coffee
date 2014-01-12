@@ -1,4 +1,12 @@
 jQuery(document).ready ->
-  $(".datepicker").datepicker({
-    dateFormat: 'dd-mm-yy'
+  $(".js_date").datetimepicker({
+    showButtonPanel: true,
+    constrainInput: true,
+    autoSize: true,
+    icons: {
+      time: "fa fa-clock-o",
+      date: "fa fa-calendar",
+      up: "fa fa-arrow-up",
+      down: "fa fa-arrow-down"
+    }
   });
