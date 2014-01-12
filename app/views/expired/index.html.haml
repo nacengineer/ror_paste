@@ -1,12 +1,13 @@
 = content_for :header_title do
   - if @pastes.blank?
     %div
-      = glue_bottle_img
-      %p There are currently no pastes
+      = site_logo
   - else
     = page_title( "Pastes in the system" )
 
-- if @pastes.present?
+- if @pastes.blank?
+  = no_pastes_msg
+- else
   %table.table.table-striped.table-bordered
     %caption Expired Pastes
     %thead
@@ -19,7 +20,7 @@
       %tfoot
         %tr
           %td{colspan: 3}
-            =# will_paginate @paste
+            = will_paginate @paste
 
     %tbody
       - @pastes.each do |paste|

@@ -21,10 +21,15 @@
       #nav-bar-sub.col-md-3
         = render "flash_messages"
         - if content_for?(:header_title)
-          %legend= yield :header_title
+          = yield :header_title
         = yield :sub_navbar
         - if content_for?(:h3_content)
           = yield :h3_content
         %div= yield :sidebar_content
       #main-body.col-md-9
         #main-content= yield
+    #footer
+      %hr
+      %b Attributions: Graphic Elements
+      %ul
+        %li Lion by Cecilia Morales from The Noun Project

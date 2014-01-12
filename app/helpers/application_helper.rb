@@ -8,6 +8,15 @@ module ApplicationHelper
     "You Paste, We Display it!"
   end
 
+  def site_logo(bs_width = 'col-md-8')
+    image_tag "icon_12652/icon_12652.svg", class: "img-responsive #{bs_width}"
+  end
+
+  def no_pastes_msg
+    content_tag :h3, "There are currently no #{'expired' if controller_name ==
+      'expired' && action_name == 'index'} pastes"
+  end
+
   def display_timestamp( some_datetime )
     return '-' if some_datetime.blank?
     some_datetime.strftime('%m-%d-%Y %I:%M %p')
@@ -45,8 +54,8 @@ module ApplicationHelper
     "<span class='badge'>#{num}</span> #{text}".html_safe
   end
 
-  def glue_bottle_img
-    image_tag("icon_12750/icon_12750.svg", class: 'img-responsive col-md-3')
+  def glue_bottle_img(bs_width = 'col-md-3')
+    image_tag "icon_12750/icon_12750.svg", class: "img-responsive #{bs_width}"
   end
 
 end

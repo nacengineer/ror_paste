@@ -1,4 +1,4 @@
-ready ->
+ready = ->
   $(".js_date").datetimepicker({
     showButtonPanel: true,
     constrainInput: true,

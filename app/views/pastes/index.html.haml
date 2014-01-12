@@ -1,12 +1,13 @@
 = content_for :header_title do
   - if @pastes.blank?
     %div
-      = glue_bottle_img
-      %p= "There are currently no #{'expired' if action_name == 'expired'} pastes"
+      = site_logo
   - else
     = page_title("Pastes in the system")
 
-- if @pastes.present?
+- if @pastes.blank?
+  = no_pastes_msg
+- else
   %table.table.table-striped.table-bordered
     %caption Active Pastes
     %thead
