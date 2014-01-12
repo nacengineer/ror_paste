@@ -1,7 +1,8 @@
 [![Code Climate](https://codeclimate.com/github/nacengineer/ror_paste.png)](https://codeclimate.com/github/nacengineer/ror_paste)
 
-# RoR Paste #
-## A simple paste app for Rails written (mostly) in ruby ##
+# RoR Paste - Ruby on Rails Paste#
+![](https://github.com/nacengineer/ror_paste/blob/master/app/assets/images/icon_12652/icon_12652.svg)
+## A simple paste app written (mostly) in Ruby ##
 ### Dependencies ###
 - nodejs
 - ruby 2.0 but should work with 1.9 syntax
@@ -14,7 +15,9 @@
 - Simple Form
 
 Authors Note:
-In the spirit of OpenSource, some of the code in this app was "borrowed" from code published on the web and from the awesome project gitlab. The Gitlab stuff is for GFM Markdown. Other stuff I learned along the way.
+In the spirit of OpenSource, some of the code in this app was "borrowed" from code published on the web and from the awesome project [Gitlab](http://gitlab.org/). 
+
+The Gitlab stuff is for GFM Markdown. The other stuff I probably just learned along the way.
 
 You should rename the following to .rb and modify to suit your deploy.
 
