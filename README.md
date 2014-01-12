@@ -1,7 +1,7 @@
 [![Code Climate](https://codeclimate.com/github/nacengineer/ror_paste.png)](https://codeclimate.com/github/nacengineer/ror_paste)
 
 # RoR Paste - Ruby on Rails Paste#
-![](https://raw.github.com/nacengineer/ror_paste/blob/master/app/assets/images/icon_12652/icon_12652.svg)
+![](https://raw.github.com/nacengineer/ror_paste/app/assets/images/icon_12652/icon_12652.png)
 ## A simple paste app written (mostly) in Ruby ##
 ### Dependencies ###
 - nodejs
