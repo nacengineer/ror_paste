@@ -1,6 +1,8 @@
 = content_for :header_title do
   - if @pastes.blank?
-    %p= There are currently no #{'expired' if action_name == 'expired'} pastes
+    %div
+      = glue_bottle_img
+      %p= "There are currently no #{'expired' if action_name == 'expired'} pastes"
   - else
     = page_title("Pastes in the system")
 
@@ -15,7 +17,7 @@
     - if will_paginate(@pastes)
       %tfoot
         %tr
-          %td{:colspan => 3}
+          %td{colspan: 3}
             = will_paginate @paste
     %tbody
       - @pastes.each do |paste|
@@ -29,5 +31,5 @@
           %td= display_timestamp(paste.created_at)
 
 = content_for :sub_navbar do
-  = link_to new_link_text, new_paste_path, class: 'btn btn-success'
-  = link_to fa_icon('trash-o', text: 'expired pastes'), old_pastes_path, class: 'btn btn-warning'
+  = link_to fa_icon('trash-o', text: 'expired pastes'), expired_index_path, class: 'btn btn-danger'
+  = link_to new_link_no_text, new_paste_path, class: 'btn btn-success'

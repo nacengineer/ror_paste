@@ -35,6 +35,7 @@ gem 'rails-bootstrap-markdown'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-ui-themes'
+gem 'jquery-turbolinks'
 gem 'yui-compressor'
 
 gem 'turbolinks'

@@ -66,7 +66,7 @@ class PastesController < ApplicationController
     @paste.destroy
 
     respond_to do |format|
-      format.html { redirect_to pastes_url }
+      format.html { redirect_to pastes_path }
     end
   end
 

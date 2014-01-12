@@ -34,4 +34,5 @@ RorPaste::Application.configure do
   config.eager_load = false
 
   config.middleware.use ::Rack::PerftoolsProfiler, default_printer: 'gif'
+
 end

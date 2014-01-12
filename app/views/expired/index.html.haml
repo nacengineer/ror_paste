@@ -1,6 +1,8 @@
 = content_for :header_title do
   - if @pastes.blank?
-    %p There are currently no pastes
+    %div
+      = glue_bottle_img
+      %p There are currently no pastes
   - else
     = page_title( "Pastes in the system" )
 
@@ -16,8 +18,8 @@
     - if will_paginate(@pastes)
       %tfoot
         %tr
-          %td{:colspan => 3}
-            = will_paginate @paste
+          %td{colspan: 3}
+            =# will_paginate @paste
 
     %tbody
       - @pastes.each do |paste|
@@ -31,5 +33,5 @@
           %td= display_timestamp( paste.created_at )
 
 = content_for :sub_navbar do
-  = link_to new_link_no_text, new_paste_path, :class => 'btn btn-success'
-  = link_to index_link_no_text, pastes_path, :class => 'btn btn-info'
+  = link_to index_link_text("current pastes"), pastes_path, class: 'btn btn-primary'
+  = link_to new_link_no_text, new_paste_path, class: 'btn btn-success'
