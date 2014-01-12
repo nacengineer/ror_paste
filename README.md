@@ -1,9 +1,12 @@
 [![Code Climate](https://codeclimate.com/github/nacengineer/ror_paste.png)](https://codeclimate.com/github/nacengineer/ror_paste)
 
 # RoR Paste #
-## A simple paste app for Rails ##
+## A simple paste app for Rails written (mostly) in ruby ##
 ### Dependencies ###
-
+- nodejs
+- ruby 2.0 but should work with 1.9 syntax
+- rails 4.1.0.beta1
+- bootstrap 3
 - memcached (configure in config/application.rb)
 
 A lot of the beginning code in this app was lifted from code published on the web and from the awesome project gitlab. :)
