@@ -1,4 +1,4 @@
-jQuery(document).ready ->
+ready ->
   $(".js_date").datetimepicker({
     showButtonPanel: true,
     constrainInput: true,
@@ -10,3 +10,6 @@ jQuery(document).ready ->
       down: "fa fa-arrow-down"
     }
   });
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

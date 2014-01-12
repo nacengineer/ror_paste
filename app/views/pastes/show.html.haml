@@ -15,6 +15,6 @@
 
 = content_for :sub_navbar do
   %div.nav.nav-pills
-    = link_to index_link_no_text,  pastes_path,    :class => 'btn btn-primary'
-    = link_to new_link_no_text,  new_paste_path, :class => 'btn btn-primary'
-    = link_to edit_link_no_text, edit_paste_path(@paste), :class => 'btn btn-primary'
+    = link_to index_link_no_text,  pastes_path, class: 'btn btn-primary'
+    = link_to new_link_no_text, new_paste_path, class: 'btn btn-primary'
+    = link_to edit_link_no_text, edit_paste_path(@paste), class: 'btn btn-primary'

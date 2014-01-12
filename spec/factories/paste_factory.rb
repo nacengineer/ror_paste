@@ -8,7 +8,7 @@ FactoryGirl.define do
       expire {(eval(RorPaste::SETTINGS[:expire_period].to_s) + 1.day).ago}
     end
 
-    factory :old_paste, traits: [:old]
+    factory :expired, traits: [:old]
   end
 
 end

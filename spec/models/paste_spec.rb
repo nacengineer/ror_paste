@@ -7,7 +7,7 @@ describe Paste do
       @current_time = Time.now
       @before       = FactoryGirl.create(:paste)
       @at           = FactoryGirl.create(:paste, expire: @current_time)
-      @old          = FactoryGirl.create(:old_paste)
+      @old          = FactoryGirl.create(:expired)
     end
 
     after {Paste.delete_all}

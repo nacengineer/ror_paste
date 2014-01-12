@@ -1,6 +1,6 @@
 = content_for :header_title do
   - if @pastes.blank?
-    %p There are currently no pastes
+    %p= There are currently no #{'expired' if action_name == 'expired'} pastes
   - else
     = page_title("Pastes in the system")
 
@@ -29,5 +29,5 @@
           %td= display_timestamp(paste.created_at)
 
 = content_for :sub_navbar do
-  = link_to new_link_text, new_paste_path, :class => 'btn btn-success'
-  = link_to index_link_text("expired"), old_pastes_path, :class => 'btn btn-warning'
+  = link_to new_link_text, new_paste_path, class: 'btn btn-success'
+  = link_to fa_icon('trash-o', text: 'expired pastes'), old_pastes_path, class: 'btn btn-warning'

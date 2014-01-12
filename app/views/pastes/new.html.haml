@@ -2,4 +2,4 @@
   = page_title( "New Paste" )
 = render 'form'
 = content_for :sub_navbar do
-  = link_to 'All Pastes',  pastes_path, :class => 'btn btn-primary'
+  = link_to index_link_text, pastes_path, class: 'btn btn-primary'

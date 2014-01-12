@@ -2,5 +2,5 @@
   = page_title( "Editing Paste" )
 = render 'form'
 = content_for :sub_navbar do
-  = link_to 'Back', :back, :class => 'btn btn-primary'
-  = link_to 'Show', @paste, :class => 'btn btn-primary'
+  = link_to index_link_text, pastes_path, class: 'btn btn-primary'
+  = link_to show_link_text, @paste, class: 'btn btn-primary'

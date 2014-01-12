@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe OldPastesController do
+describe ExpiredController do
 
   before do
     @paste = FactoryGirl.create(:old_paste)

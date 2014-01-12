@@ -27,8 +27,12 @@ module LinkHelper
   def link_text(name, args, &block)
     text = if args
       " #{args}"
+    elsif controller_name && name == 'index'
+      " #{nice_label(controller_name)}"
     elsif controller_name
       " #{name} #{nice_label(controller_name.singularize)}"
+    else
+      ''
     end
     send("#{name}_link_icon") << text.downcase
   end
