@@ -46,41 +46,6 @@ module Gitlab
 
       # Extract pre blocks so they are not altered
       # from http://github.github.com/github-flavored-markdown/
-      extractions = {}
-      text.gsub!(%r{<pre>.*?</pre>|<code>.*?</code>}m) do |match|
-        md5 = Digest::MD5.hexdigest(match)
-        extractions[md5] = match
-        "{gfm-extraction-#{md5}}"
-      end
-
-      # TODO: add popups with additional information
-
-      # Insert pre block extractions
-      text.gsub!(/\{gfm-extraction-(\h{32})\}/) do
-        extractions[$1]
-      end
-
-      sanitize text.html_safe, attributes: ActionView::Base.sanitized_allowed_attributes + %w(id class)
-    end
-
-    # Public: Parse the provided text with GitLab-Flavored Markdown
-    #
-    # text         - the source text
-    # html_options - extra options for the reference links as given to link_to
-    #
-    # Note: reference links will only be generated if @project is set
-    def gfm(text, html_options = {})
-      return text if text.nil?
-
-      # Duplicate the string so we don't alter the original, then call to_str
-      # to cast it back to a String instead of a SafeBuffer. This is required
-      # for gsub calls to work as we need them to.
-      text = text.dup.to_str
-
-      @html_options = html_options
-
-      # Extract pre blocks so they are not altered
-      # from http://github.github.com/github-flavored-markdown/
       text.gsub!(%r{<pre>.*?</pre>|<code>.*?</code>}m) { |match| extract_piece(match) }
       # Extract links with probably parsable hrefs
       text.gsub!(%r{<a.*?>.*?</a>}m) { |match| extract_piece(match) }
