@@ -1,6 +1,5 @@
 = content_for :header_title do
-  %div
-    = site_logo
+  %div= site_logo
   - if @pastes.present?
     = page_title("Pastes in the system")
 

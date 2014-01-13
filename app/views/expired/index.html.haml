@@ -1,8 +1,6 @@
 = content_for :header_title do
-  - if @pastes.blank?
-    %div
-      = site_logo
-  - else
+  %div= site_logo
+  - if @pastes.present?
     = page_title( "Pastes in the system" )
 
 - if @pastes.blank?
