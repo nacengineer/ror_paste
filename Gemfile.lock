@@ -428,7 +428,7 @@ DEPENDENCIES
   rails-bootstrap-markdown
   rails-observers
   rails3-generators
-  rb-inotify
+  rb-fsevent (~> 0.9.1)
   redcarpet
   rspec
   rspec-rails (~> 2.0)

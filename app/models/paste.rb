@@ -8,8 +8,8 @@ class Paste < ActiveRecord::Base
       where('expire >= ?', date).default_order
     end
 
-    def expired(date = expire_period)
-      where('expire <= ?', date).default_order
+    def expired
+      where('expire <= ?', DateTime.now).default_order
     end
 
     def default_order
