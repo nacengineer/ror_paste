@@ -27,7 +27,11 @@
               %li= link_to show_link_no_text, paste, alt: 'show', name: 'show'
               %li= link_to edit_link_no_text, edit_paste_path(paste), alt: 'edit', name: 'edit'
               %li= link_to delete_link_no_text, paste, confirm: 'Are you sure?', method: :delete, alt: 'delete', name: 'delete'
-          %td= markdown(paste.read_title)
+          %td
+            - if paste.title.present?
+              = paste.title
+            - else
+              = markdown(paste.read_title)
           %td= display_timestamp(paste.created_at)
 
 = content_for :sub_navbar do
