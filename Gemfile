@@ -55,7 +55,6 @@ gem 'nokogiri'
 
 gem 'manic_monkey', '~> 0.0.2'
 gem 'guard-spork', group: :development, git: 'https://github.com/guard/guard-spork.git'
-gem 'rack-mini-profiler'
 
 group :development do
   gem 'annotate'
@@ -63,11 +62,6 @@ group :development do
   gem 'hirb'
   # uncomment if you don't have js engine (node.js) on your system
   gem 'mini_racer'
-  gem 'capistrano'
-  gem 'capistrano-ext'
-  gem 'capistrano_colors'
-  gem 'rvm'
-  gem 'rvm-capistrano'
 end
 
 group :development, :test do
@@ -82,8 +76,8 @@ group :development, :test do
   gem 'ruby_cowsay'
   gem 'sextant'
   gem 'rails3-generators'
-  gem 'rspec'
-  gem "rspec-rails", "~> 2.0"
+  gem 'rspec', "~> 2.99.0"
+  gem "rspec-rails"
   gem 'capybara'
 end
 
