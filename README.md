@@ -5,6 +5,11 @@
 ### Dependencies ###
 - nodejs
 - ruby 2.0 but should work with 1.9 syntax
+- cmake
+
+for mysql w/o local mysql on os x
+- homebrew then run ```brew install mysql-connector-c```
+
 
 ### Utilizes
 - Twitter Bootstrap 3
@@ -14,7 +19,7 @@
 - Simple Form
 
 Authors Note:
-In the spirit of OpenSource, some of the code in this app was "borrowed" from code published on the web and from the awesome project [Gitlab](http://gitlab.org/). 
+In the spirit of OpenSource, some of the code in this app was "borrowed" from code published on the web and from the awesome project [Gitlab](http://gitlab.org/).
 
 The Gitlab stuff is for GFM Markdown. The other stuff I probably just learned along the way.
 

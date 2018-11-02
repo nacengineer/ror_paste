@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-RAILS_VERSION = '~> 4.1.0.beta1'
+RAILS_VERSION = '~> 4.1.0'
 
 gem 'rails', RAILS_VERSION
 
@@ -12,10 +12,10 @@ gem 'actionpack-action_caching'
 gem 'actionpack', RAILS_VERSION
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# gem 'rails', :git => 'https://github.com/rails/rails.git'
 
-# gem 'sqlite3'
-gem 'mysql2'
+gem 'sqlite3'
+# gem 'mysql2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -47,14 +47,14 @@ gem 'simple_form', '~> 3.0.1'
 gem 'dalli'
 
 gem 'pygments.rb'
-gem "github-linguist", "~> 2.10.9" , require: 'linguist'
-gem "github-markup",   "~> 1.0.0",   require: 'github/markup'
+gem "github-linguist", "~> 7.0.0" , require: 'linguist'
+gem "github-markup",   "~> 3.0.1",   require: 'github/markup'
 
 gem 'redcarpet'
 gem 'nokogiri'
 
 gem 'manic_monkey', '~> 0.0.2'
-gem 'guard-spork', group: :development, github: 'guard/guard-spork'
+gem 'guard-spork', group: :development, git: 'https://github.com/guard/guard-spork.git'
 gem 'rack-mini-profiler'
 
 group :development do
@@ -62,7 +62,7 @@ group :development do
   gem 'oink'
   gem 'hirb'
   # uncomment if you don't have js engine (node.js) on your system
-  # gem 'therubyracer'
+  gem 'mini_racer'
   gem 'capistrano'
   gem 'capistrano-ext'
   gem 'capistrano_colors'
@@ -85,8 +85,6 @@ group :development, :test do
   gem 'rspec'
   gem "rspec-rails", "~> 2.0"
   gem 'capybara'
-  gem 'ruby-prof'
-  gem 'perftools.rb', git: 'git://github.com/tmm1/perftools.rb.git'
 end
 
 group :production do
@@ -107,9 +105,8 @@ group :test do
   gem 'guard-livereload'
   gem 'guard-brakeman'
   gem 'guard-coffeescript'
-  gem 'database_cleaner', :git => "https://github.com/tommeier/database_cleaner", branch: "fix-superclass"
-  gem 'rack-perftools_profiler', require: 'rack/perftools_profiler'
-  gem 'spork-rails', github: 'sporkrb/spork-rails'
+  gem 'database_cleaner', git: "https://github.com/tommeier/database_cleaner", branch: "fix-superclass"
+  gem 'spork-rails', git: 'https://github.com/sporkrb/spork-rails.git'
   gem 'fuubar'
   # gem 'webmock'
   if RUBY_PLATFORM =~ /darwin/

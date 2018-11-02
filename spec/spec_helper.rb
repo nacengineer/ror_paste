@@ -80,14 +80,6 @@ Spork.prefork do
       DeferredGarbageCollection.reconsider
     end
 
-    config.before :suite do
-      PerfTools::CpuProfiler.start("#{profile_directory}/rspec_profile")
-    end
-
-    config.after :suite do
-      PerfTools::CpuProfiler.stop
-    end
-
     def profile_directory
       directory = "/tmp/#{Rails.application.class.parent_name}"
       system("mkdir #{directory}") unless Dir.exist? directory

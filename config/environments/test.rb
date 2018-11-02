@@ -33,6 +33,9 @@ RorPaste::Application.configure do
 
   config.eager_load = false
 
-  config.middleware.use ::Rack::PerftoolsProfiler, default_printer: 'gif'
+  config.middleware.use StackProf::Middleware, enabled: true,
+                           mode: :cpu,
+                           interval: 1000,
+                           save_every: 5
 
 end
